@@ -4,6 +4,7 @@
 
 #include "BlurFilter.h"
 #include "Effects.h"
+#define M_PI       3.14159265358979323846
 
 BlurFilter::BlurFilter()
   : mBlurredOutputTexSRV(0), mBlurredOutputTexUAV(0)
@@ -25,18 +26,18 @@ void BlurFilter::SetGaussianWeights(float sigma)
 {
 	float d = 2.0f*sigma*sigma;
 
-	float weights[9];
+	float weights[11];
 	float sum = 0.0f;
-	for(int i = 0; i < 8; ++i)
+	for(int i = 0; i < 11; ++i)
 	{
 		float x = (float)i;
-		weights[i] = expf(-x*x/d);
+		weights[i] = 1.0/(sqrt(2* M_PI)*sigma)*expf(-pow((x-11/2),2)/d);
 
 		sum += weights[i];
 	}
 
 	// Divide by the sum so all the weights add up to 1.0.
-	for(int i = 0; i < 8; ++i)
+	for(int i = 0; i < 11; ++i)
 	{
 		weights[i] /= sum;
 	}

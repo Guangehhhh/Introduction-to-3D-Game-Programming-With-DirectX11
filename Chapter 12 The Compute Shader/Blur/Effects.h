@@ -95,7 +95,7 @@ public:
 	BlurEffect(ID3D11Device* device, const std::wstring& filename);
 	~BlurEffect();
 
-	void SetWeights(const float weights[9])           { Weights->SetFloatArray(weights, 0, 9); }
+	void SetWeights(const float weights[11])           { Weights->SetFloatArray(weights, 0, 11); }
 	void SetInputMap(ID3D11ShaderResourceView* tex)   { InputMap->SetResource(tex); }
 	void SetOutputMap(ID3D11UnorderedAccessView* tex) { OutputMap->SetUnorderedAccessView(tex); }
 

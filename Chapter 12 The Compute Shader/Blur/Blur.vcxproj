@@ -42,8 +42,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(IncludePath);$(DirectXPath)Include;..\..\Common</IncludePath>
-    <LibraryPath>$(LibraryPath);$(DirectXPath)Lib\x86;..\..\Comon</LibraryPath>
+    <IncludePath>$(DirectXPath)Include;$(IncludePath);..\..\Common</IncludePath>
+    <LibraryPath>$(DirectXPath)Lib\x86;$(LibraryPath);..\..\Comon</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -61,6 +61,9 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>d3d11.lib;d3dx11d.lib;D3DCompiler.lib;Effects11d.lib;dxerr.lib;dxgi.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <CustomBuild>
+      <Command>fxc /Fc /Od /Zi /T fx_5_0 /Fo "%(RelativeDir)%(Filename).fxo" "%(FullPath)" b) </Command>
+    </CustomBuild>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>

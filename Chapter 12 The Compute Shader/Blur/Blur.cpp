@@ -360,7 +360,7 @@ void BlurApp::DrawScene()
 	renderTargets[0] = mRenderTargetView;
 	md3dImmediateContext->OMSetRenderTargets(1, renderTargets, mDepthStencilView);
 
-	//mBlur.SetGaussianWeights(4.0f);
+	mBlur.SetGaussianWeights(4.0f);
 	mBlur.BlurInPlace(md3dImmediateContext, mOffscreenSRV, mOffscreenUAV, 4);
 
 	//
