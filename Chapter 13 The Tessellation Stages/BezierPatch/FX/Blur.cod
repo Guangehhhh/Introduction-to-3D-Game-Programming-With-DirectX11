@@ -86,7 +86,7 @@ fxgroup
                 dcl_tgsm_structured g0, 16, 266
                 dcl_thread_group 256, 1, 1
                 
-                #line 39 "C:\document\Introduction-to-3D-Game-Programming-With-DirectX11\Chapter 13 The Tessellation Stages\BasicTessellation\FX\Blur.fx"
+                #line 39 "C:\document\Introduction-to-3D-Game-Programming-With-DirectX11\Chapter 13 The Tessellation Stages\BezierPatch\FX\Blur.fx"
                 ilt r0.x, vThreadIDInGroup.x, l(5)
                 if_nz r0.x
                   mov r0.x, vThreadIDInGroup.x  // groupThreadID<0:[0,4]>
@@ -294,7 +294,7 @@ fxgroup
                 dcl_tgsm_structured g0, 16, 266
                 dcl_thread_group 1, 256, 1
                 
-                #line 87 "C:\document\Introduction-to-3D-Game-Programming-With-DirectX11\Chapter 13 The Tessellation Stages\BasicTessellation\FX\Blur.fx"
+                #line 87 "C:\document\Introduction-to-3D-Game-Programming-With-DirectX11\Chapter 13 The Tessellation Stages\BezierPatch\FX\Blur.fx"
                 ilt r0.x, vThreadIDInGroup.y, l(5)
                 if_nz r0.x
                   mov r0.x, vThreadIDInGroup.y  // groupThreadID<1:[0,4]>
